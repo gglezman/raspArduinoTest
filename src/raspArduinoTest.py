@@ -192,14 +192,20 @@ class Test:
 
                 # Update the totals in the GUI with the new results
                 (tot_transmit_box, read_exception_box, write_exception_box,\
-                 uncorrected_box, data_mismatch_box) = self.status_widgets[adr]
+                data_mismatch_box, uncorrected_box ) = self.status_widgets[adr]
 
-                ct = int(tot_transmit_box.get()) + result[0]
-                re = int(read_exception_box.get()) + result[1]
+                tt = int(tot_transmit_box.get()) + result[0]
                 tot_transmit_box.delete(0, tk.END)
-                tot_transmit_box.insert(0, ct)
+                tot_transmit_box.insert(0, tt)
+
+                re = int(read_exception_box.get()) + result[1]
                 read_exception_box.delete(0, tk.END)
                 read_exception_box.insert(0, re)
+
+                dm = int(data_mismatch_box.get()) + result[2]
+                data_mismatch_box.delete(0, tk.END)
+                data_mismatch_box.insert(0, dm)
+
                 self.win.update_idletasks()
                 self.iter_count.delete(0, tk.END)
                 self.iter_count.insert(0, iterations - i - 1)
