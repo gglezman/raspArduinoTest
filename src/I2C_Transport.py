@@ -50,7 +50,7 @@ class I2C_Transport:
         return messages_to_send, read_exception, data_mismatch
                       
 
-    def loopback_test_write(self, adr, reg):
+    def block_write_test(self, adr, reg):
         """Execute a loopback test on the given address
 
         A loopback test consists of the following message sent 256 times

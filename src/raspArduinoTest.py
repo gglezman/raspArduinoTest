@@ -214,7 +214,7 @@ class Test:
     def write_verify_test(self, iterations):
         for i in range(iterations):
             for adr in self.arduino_list:
-                result = self.i2c_bus.loopback_test_write(int(adr, base=16), 100)
+                result = self.i2c_bus.block_write_test(int(adr, base=16), 100)
 
                 # Update the totals in the GUI with the new results
                 (tot_transmit_box, read_exception_box, write_exception_box,\
